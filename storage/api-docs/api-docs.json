@@ -1,0 +1,126 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Inventory API",
+        "description": "API documentation for the Inventory system",
+        "contact": {
+            "email": "your@email.com"
+        },
+        "license": {
+            "name": "MIT License",
+            "url": "http://opensource.org/licenses/MIT"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "products/api/add": {
+            "post": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Add a new product via API",
+                "description": "Add a new product using the provided parameters",
+                "operationId": "addProduct",
+                "requestBody": {
+                    "description": "Product details",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "type",
+                                    "purchase_price",
+                                    "sale_price",
+                                    "sku",
+                                    "upc",
+                                    "ean",
+                                    "weight",
+                                    "brand",
+                                    "qty",
+                                    "isbn",
+                                    "unit",
+                                    "returnable",
+                                    "length",
+                                    "width",
+                                    "height",
+                                    "image"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    },
+                                    "purchase_price": {
+                                        "type": "number"
+                                    },
+                                    "sale_price": {
+                                        "type": "number"
+                                    },
+                                    "sku": {
+                                        "type": "string"
+                                    },
+                                    "upc": {
+                                        "type": "string"
+                                    },
+                                    "ean": {
+                                        "type": "string"
+                                    },
+                                    "weight": {
+                                        "type": "number"
+                                    },
+                                    "brand": {
+                                        "type": "string"
+                                    },
+                                    "qty": {
+                                        "type": "integer"
+                                    },
+                                    "isbn": {
+                                        "type": "string"
+                                    },
+                                    "unit": {
+                                        "type": "string"
+                                    },
+                                    "returnable": {
+                                        "type": "boolean"
+                                    },
+                                    "length": {
+                                        "type": "number"
+                                    },
+                                    "width": {
+                                        "type": "number"
+                                    },
+                                    "height": {
+                                        "type": "number"
+                                    },
+                                    "image": {
+                                        "description": "Base64-encoded image",
+                                        "type": "string",
+                                        "format": "byte"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Product added successfully"
+                    },
+                    "400": {
+                        "description": "Validation error"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        }
+    }
+}
